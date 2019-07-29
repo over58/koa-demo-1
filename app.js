@@ -1,19 +1,10 @@
 const Koa = require('koa')
 const app = new Koa()
-const bodyParser = require('koa-bodyparser')
-const serve = require('koa-static')
-const view = require('koa-views')
 const router = require('./router')
+const middleware = require('./middleware')
 
-// 静态文件目录
-app.use(serve('./static'))
-
-// 视图文件目录
-app.use(view('./view'))
-
-// 为了方便获取body中的参数
-app.use(bodyParser())
-
+// 加载中间件
+middleware(app)
 // 加载路由
 router(app)
 

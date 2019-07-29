@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- 静态文件目录的路径在app.js中已经指明了 -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <h3>{{ title }}</h3>
+  <ul>
+    {% for item in users %}
+      {% if item === 'Jack' %}
+      <li>我是Jack</li>
+      {% else %}
+      <li>{{ item }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <script>
+    function submit() {
+    }
+  </script>
+
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="submit" @click="submit">
+  </form>
+</body>
+</html>
